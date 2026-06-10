@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>دورم · مقهى إسبرسو مختص في أبها — Dorm Cafe</title>
+<meta name="description" content="دورم (Dorm) — مقهى إسبرسو مختص في أبها، حي الأندلس. قهوة مقطّرة بمحاصيل مختارة، إسبريسو، وحلويات. تقييم قوقل ٤٫٢ من ٦١٠ زيارة. زورونا أو تواصلوا عبر واتساب.">
+<meta property="og:title" content="دورم · مقهى إسبرسو مختص في أبها">
+<meta property="og:description" content="قهوة مقطّرة بمحاصيل مختارة وإسبريسو وحلويات — في قلب أبها.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@300;400;500;700&family=Space+Grotesk:wght@400;500;600&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cream:#f4ecda; --cream2:#ece0c8; --paper:#fbf7ec;
+  --green:#2d5a45; --green-d:#193a2c; --green-l:#4d8064; --green-soft:#e0e6dc;
+  --crimson:#d63b43; --crimson-d:#b82e36;
+  --ink:#2a201a; --ink2:#5e5347; --ink3:#938578;
+  --wood:#b5824f;
+  --line:rgba(42,32,26,.14); --line2:rgba(42,32,26,.07);
+  --fa-d:'Cairo',sans-serif; --fa:'Tajawal',sans-serif;
+  --fu:'Space Grotesk',sans-serif; --fw:'Quicksand',sans-serif;
+  --ease:cubic-bezier(.32,.72,0,1); --maxw:1280px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--cream);color:var(--ink);font-family:var(--fa);font-weight:400;line-height:1.85;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--green);color:var(--cream)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,h4{font-family:var(--fa-d);font-weight:800;line-height:1.14;letter-spacing:-.015em}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+.wm{font-family:var(--fw);font-weight:600;text-transform:lowercase;letter-spacing:-.03em}
+.lat{font-family:var(--fu)}
+.dots::before{content:"··";color:var(--crimson);font-weight:900;letter-spacing:.06em;margin-inline-start:10px;position:relative;top:-2px}
+
+/* grain + texture */
+.grain{position:fixed;inset:0;z-index:9000;pointer-events:none;opacity:.045;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* preloader */
+#pre{position:fixed;inset:0;z-index:10000;background:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:opacity .9s var(--ease),visibility .9s}
+#pre.done{opacity:0;visibility:hidden}
+#pre .pw{font-family:var(--fw);font-weight:600;font-size:clamp(46px,12vw,80px);color:var(--cream);text-transform:lowercase;letter-spacing:-.04em;opacity:0;transform:translateY(12px);animation:plin 1s var(--ease) .15s forwards}
+#pre .pw i{color:var(--crimson);font-style:normal}
+#pre small{font-family:var(--fu);font-size:10px;letter-spacing:.55em;text-transform:uppercase;color:rgba(244,236,218,.6);opacity:0;animation:plin 1s var(--ease) .45s forwards}
+#pre .pb{width:120px;height:1px;background:rgba(244,236,218,.2);overflow:hidden;margin-top:6px}
+#pre .pb i{display:block;height:100%;width:0;background:var(--cream);animation:pbar 2.2s var(--ease) .3s forwards}
+@keyframes plin{to{opacity:1;transform:none}}
+@keyframes pbar{to{width:100%}}
+
+/* progress + nav */
+#prog{position:fixed;top:0;left:0;right:0;height:3px;background:transparent;z-index:7000}
+#prog i{display:block;height:100%;width:0;background:var(--crimson)}
+#nav{position:fixed;top:18px;left:0;right:0;z-index:6500;display:flex;justify-content:center;pointer-events:none}
+.nbar{pointer-events:auto;display:flex;align-items:center;gap:8px;background:rgba(251,247,236,.82);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);border:1px solid var(--line);border-radius:100px;padding:9px 9px 9px 22px;box-shadow:0 18px 50px -30px rgba(25,58,44,.6);transition:.5s var(--ease)}
+#nav.shrink .nbar{padding-top:7px;padding-bottom:7px;box-shadow:0 14px 36px -26px rgba(25,58,44,.7)}
+.nbrand{font-family:var(--fw);font-weight:600;font-size:23px;color:var(--green);text-transform:lowercase;letter-spacing:-.03em;margin-inline-end:8px}
+.nbrand i{color:var(--crimson);font-style:normal}
+.nav-links{display:flex;gap:4px}
+.nav-links a{font-size:14px;color:var(--ink2);padding:8px 14px;border-radius:100px;transition:.35s var(--ease);font-weight:500}
+.nav-links a:hover{color:var(--green);background:var(--green-soft)}
+.ncta{display:inline-flex;align-items:center;gap:9px;background:var(--green);color:var(--cream);padding:11px 13px 11px 20px;border-radius:100px;font-weight:600;font-size:14px;transition:.4s var(--ease)}
+.ncta:hover{background:var(--green-d);transform:translateY(-1px)}
+.ncta .ic{width:24px;height:24px;border-radius:50%;background:rgba(244,236,218,.16);display:grid;place-items:center}
+.ncta .ic svg{width:13px;height:13px;fill:var(--cream)}
+.burger{display:none;width:46px;height:46px;border-radius:50%;background:var(--green);border:none;cursor:pointer;position:relative}
+.burger span{position:absolute;left:13px;width:20px;height:2px;background:var(--cream);border-radius:2px;transition:.4s var(--ease)}
+.burger span:nth-child(1){top:17px}.burger span:nth-child(2){top:23px}.burger span:nth-child(3){top:29px}
+.burger.x span:nth-child(1){top:23px;transform:rotate(45deg)}
+.burger.x span:nth-child(2){opacity:0}
+.burger.x span:nth-child(3){top:23px;transform:rotate(-45deg)}
+
+/* mobile overlay */
+#mob{position:fixed;inset:0;z-index:6400;background:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;opacity:0;visibility:hidden;transition:.6s var(--ease)}
+#mob.open{opacity:1;visibility:visible}
+#mob a{font-family:var(--fa-d);font-weight:700;font-size:30px;color:var(--cream);opacity:0;transform:translateY(20px);transition:.6s var(--ease)}
+#mob.open a{opacity:1;transform:none}
+#mob.open a:nth-child(1){transition-delay:.1s}#mob.open a:nth-child(2){transition-delay:.16s}#mob.open a:nth-child(3){transition-delay:.22s}#mob.open a:nth-child(4){transition-delay:.28s}#mob.open a:nth-child(5){transition-delay:.34s}
+#mob .msoc{margin-top:24px;display:flex;gap:14px;opacity:0;transition:.6s var(--ease) .42s}
+#mob.open .msoc{opacity:1}
+#mob .msoc a{font-size:0;width:48px;height:48px;border:1px solid rgba(244,236,218,.3);border-radius:50%;display:grid;place-items:center}
+#mob .msoc a svg{width:20px;height:20px;fill:var(--cream)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(30px);filter:blur(6px);transition:opacity .9s var(--ease),transform .9s var(--ease),filter .9s var(--ease)}
+.rv.in{opacity:1;transform:none;filter:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;padding:120px 32px 56px;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,58,44,.34) 0%,rgba(25,58,44,.12) 32%,rgba(25,58,44,.55) 76%,rgba(25,58,44,.86) 100%)}
+.hero-in{position:relative;z-index:2;max-width:var(--maxw);margin:0 auto;width:100%}
+.hero .eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(244,236,218,.16);border:1px solid rgba(244,236,218,.32);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:var(--cream);padding:8px 16px;border-radius:100px;font-family:var(--fu);font-size:11px;letter-spacing:.22em;text-transform:uppercase}
+.hero .eyebrow b{color:var(--crimson);font-weight:700}
+.hero h1{color:var(--cream);font-size:clamp(44px,9vw,118px);font-weight:900;letter-spacing:-.03em;margin:22px 0 0;line-height:.98}
+.hero h1 .wm{font-weight:700;color:var(--cream)}
+.hero h1 em{font-style:normal;color:var(--crimson)}
+.hero .sub{color:rgba(244,236,218,.85);font-size:clamp(15px,2.4vw,19px);max-width:44ch;margin-top:22px;font-weight:400}
+.hero-act{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:12px;padding:15px 18px 15px 26px;border-radius:100px;font-weight:600;font-size:15.5px;transition:.45s var(--ease);font-family:var(--fa)}
+.btn .ic{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;transition:.45s var(--ease)}
+.btn .ic svg{width:14px;height:14px}
+.btn-1{background:var(--cream);color:var(--green-d)}
+.btn-1 .ic{background:var(--green);}.btn-1 .ic svg{fill:var(--cream)}
+.btn-1:hover{transform:translateY(-2px);box-shadow:0 24px 48px -22px rgba(0,0,0,.5)}
+.btn-1:hover .ic{transform:translateX(-3px) translateY(-1px)}
+.btn-2{background:rgba(244,236,218,.1);border:1px solid rgba(244,236,218,.4);color:var(--cream);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.btn-2 .ic{background:rgba(244,236,218,.16)}.btn-2 .ic svg{fill:var(--cream)}
+.btn-2:hover{background:rgba(244,236,218,.2)}
+.hero-meta{position:absolute;left:32px;bottom:54px;z-index:3;display:flex;align-items:center;gap:16px;background:rgba(251,247,236,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(244,236,218,.4);border-radius:18px;padding:14px 20px;box-shadow:0 22px 50px -28px rgba(0,0,0,.5)}
+.hero-meta .gg{font-family:var(--fu);font-weight:600;font-size:13px;color:var(--ink)}
+.hero-meta .stars{color:var(--crimson);font-size:15px;letter-spacing:1px}
+.hero-meta .rnum{font-family:var(--fu);font-weight:600;color:var(--green);font-size:20px;line-height:1}
+.hero-meta .rsub{font-size:11px;color:var(--ink3);font-family:var(--fu);letter-spacing:.04em}
+.hero-meta .vl{width:1px;height:34px;background:var(--line)}
+.scrollcue{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);z-index:3;color:rgba(244,236,218,.7);font-family:var(--fu);font-size:10px;letter-spacing:.3em;text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:8px}
+.scrollcue i{width:1px;height:30px;background:linear-gradient(rgba(244,236,218,.7),transparent);animation:cue 2s var(--ease) infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}50.1%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* marquee */
+.marq{background:var(--green);color:var(--cream);padding:20px 0;overflow:hidden;white-space:nowrap;border-top:1px solid var(--green-d)}
+.marq .track{display:inline-flex;gap:0;animation:mq 32s linear infinite}
+.marq span{font-family:var(--fa-d);font-weight:700;font-size:21px;padding:0 26px;display:inline-flex;align-items:center;gap:26px}
+.marq span::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--crimson)}
+@keyframes mq{to{transform:translateX(50%)}}
+
+/* section base */
+.sec{padding:clamp(78px,11vw,140px) 0}
+.shead{margin-bottom:clamp(40px,6vw,64px);max-width:720px}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--fu);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--green-l);font-weight:600}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--crimson)}
+.shead h2{font-size:clamp(32px,5.5vw,62px);margin:18px 0 0;color:var(--ink)}
+.shead h2 em{font-style:normal;color:var(--green)}
+.shead h2 .wm{color:var(--crimson);font-weight:700}
+.shead p{color:var(--ink2);font-size:16.5px;margin-top:18px;max-width:56ch}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(36px,5vw,72px);align-items:center}
+.about-ph{position:relative;border-radius:26px;overflow:hidden;border:1px solid var(--line);box-shadow:0 50px 90px -50px rgba(25,58,44,.6)}
+.about-ph img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+.about-ph .tag{position:absolute;right:18px;bottom:18px;background:var(--paper);border-radius:14px;padding:11px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 18px 40px -22px rgba(0,0,0,.4)}
+.about-ph .tag .wm{color:var(--green);font-weight:600;font-size:22px}
+.about-ph .tag small{font-family:var(--fu);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);display:block;line-height:1.5}
+.about-tx h2{font-size:clamp(28px,4.4vw,50px);color:var(--ink)}
+.about-tx h2 em{font-style:normal;color:var(--green)}
+.about-tx .lead{font-size:17px;color:var(--ink2);margin:22px 0 26px}
+.about-tx p{color:var(--ink2);font-size:15.5px;margin-bottom:18px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px;border-top:1px solid var(--line);padding-top:26px}
+.stat b{font-family:var(--fu);font-weight:600;font-size:clamp(28px,4vw,40px);color:var(--green);display:block;line-height:1}
+.stat .st-s{display:inline-flex;align-items:baseline;gap:5px}
+.stat .st-s i{font-style:normal;color:var(--crimson);font-size:18px}
+.stat small{font-size:12.5px;color:var(--ink3);margin-top:7px;display:block}
+
+/* craft full-bleed */
+.craft{position:relative;color:var(--cream);padding:clamp(90px,13vw,150px) 0;overflow:hidden;background:var(--green-d)}
+.craft-bg{position:absolute;inset:0;z-index:0}
+.craft-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;opacity:.5}
+.craft-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(25,58,44,.92) 30%,rgba(25,58,44,.5))}
+.craft .wrap{position:relative;z-index:2}
+.craft .eyebrow{color:#e7b9bb}.craft .eyebrow::before{background:var(--crimson)}
+.craft h2{font-size:clamp(30px,5vw,58px);color:var(--cream);max-width:18ch;margin:18px 0 0}
+.craft h2 em{font-style:normal;color:#f0c9cb}
+.craft p{color:rgba(244,236,218,.82);font-size:16.5px;max-width:50ch;margin-top:22px}
+.origins{display:flex;flex-wrap:wrap;gap:11px;margin-top:34px}
+.origins span{font-family:var(--fa);font-weight:500;font-size:14.5px;color:var(--cream);background:rgba(244,236,218,.1);border:1px solid rgba(244,236,218,.26);padding:9px 18px;border-radius:100px}
+.origins span b{color:#f0c9cb;font-weight:700}
+
+/* menu */
+.menu{background:var(--paper)}
+.menu-grid{columns:2;column-gap:30px}
+.mcard{break-inside:avoid;margin-bottom:30px;background:var(--cream);border:1px solid var(--line);border-radius:22px;padding:30px 28px 26px;box-shadow:0 36px 70px -56px rgba(25,58,44,.5)}
+.mcard h3{font-size:24px;color:var(--green);display:flex;align-items:center;justify-content:space-between}
+.mcard .en{font-family:var(--fu);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink3);font-weight:500;margin-top:3px;display:block}
+.mlist{margin-top:18px;display:flex;flex-direction:column;gap:2px}
+.mrow{display:flex;align-items:baseline;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line2)}
+.mrow:last-child{border-bottom:0}
+.mrow .nm{font-weight:500;font-size:15.5px;color:var(--ink);white-space:nowrap}
+.mrow .nm .ar-en{font-family:var(--fu);font-size:10px;color:var(--ink3);letter-spacing:.06em;margin-inline-start:7px}
+.mrow .cal{font-family:var(--fu);font-size:9.5px;color:var(--ink3);letter-spacing:.04em}
+.mrow .ldr{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:14px}
+.mrow .pr{font-family:var(--fu);font-weight:600;font-size:17px;color:var(--crimson);direction:ltr;white-space:nowrap}
+.mrow .pr::after{content:" ﷼";font-size:10px;color:var(--ink3);font-weight:500}
+.mcard .note{margin-top:14px;font-size:13px;color:var(--ink2);background:var(--green-soft);border-radius:12px;padding:11px 14px;line-height:1.7}
+.mcard .note b{color:var(--green)}
+.menu-foot{text-align:center;margin-top:42px;color:var(--ink3);font-size:13.5px;font-family:var(--fu);letter-spacing:.03em}
+
+/* gallery */
+.gal{columns:3;column-gap:15px}
+.gitem{position:relative;break-inside:avoid;margin-bottom:15px;border-radius:18px;overflow:hidden;cursor:pointer;border:1px solid var(--line);background:var(--cream2);box-shadow:0 30px 60px -52px rgba(25,58,44,.7);transition:border-color .5s var(--ease)}
+.gitem img{width:100%;height:auto;display:block;transition:transform .9s var(--ease)}
+.gitem::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(25,58,44,.62),transparent 46%);opacity:0;transition:opacity .5s var(--ease);pointer-events:none}
+.gitem:hover{border-color:rgba(45,90,69,.5)}
+.gitem:hover img{transform:scale(1.06)}
+.gitem:hover::after{opacity:1}
+.gcap{position:absolute;z-index:2;right:16px;bottom:14px;color:var(--cream);font-family:var(--fa-d);font-weight:700;font-size:15px;transform:translateY(8px);opacity:0;transition:.5s var(--ease)}
+.gcap::before{content:"";display:inline-block;width:13px;height:1px;background:var(--crimson);vertical-align:middle;margin-left:8px}
+.gitem:hover .gcap{transform:none;opacity:1}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:9500;background:rgba(20,34,26,.95);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .5s var(--ease),visibility .5s}
+.lb.open{opacity:1;visibility:visible}
+.lb img{max-width:90vw;max-height:82vh;border-radius:14px;box-shadow:0 50px 110px -34px rgba(0,0,0,.85);transform:scale(.95);transition:transform .55s var(--ease)}
+.lb.open img{transform:scale(1)}
+.lb-x,.lb-nav{position:absolute;background:rgba(244,236,218,.1);border:1px solid rgba(244,236,218,.22);color:var(--cream);width:50px;height:50px;border-radius:50%;display:grid;place-items:center;cursor:pointer;transition:.4s var(--ease);font-family:var(--fu);line-height:1}
+.lb-x:hover,.lb-nav:hover{background:rgba(244,236,218,.22);transform:scale(1.07)}
+.lb-x{top:22px;left:22px;font-size:18px}
+.lb-nav{top:50%;margin-top:-25px;font-size:26px}.lb-nav.prev{right:22px}.lb-nav.next{left:22px}
+.lb-cap{position:absolute;bottom:24px;left:0;right:0;text-align:center;color:rgba(244,236,218,.9);font-family:var(--fa-d);font-weight:700;font-size:17px}
+
+/* visit */
+.visit{background:var(--green);color:var(--cream)}
+.visit-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(34px,5vw,64px);align-items:stretch}
+.visit .eyebrow{color:#e7b9bb}.visit .eyebrow::before{background:var(--crimson)}
+.visit h2{font-size:clamp(30px,5vw,56px);color:var(--cream);margin:18px 0 0}
+.visit h2 em{font-style:normal;color:#f0c9cb}
+.vinfo{margin-top:30px;display:flex;flex-direction:column;gap:10px}
+.vrow{display:flex;align-items:center;gap:15px;background:rgba(244,236,218,.07);border:1px solid rgba(244,236,218,.16);border-radius:16px;padding:15px 18px;transition:.4s var(--ease)}
+.vrow:hover{background:rgba(244,236,218,.12)}
+.vrow .vic{width:46px;height:46px;border-radius:12px;background:rgba(244,236,218,.12);display:grid;place-items:center;flex:none}
+.vrow .vic svg{width:20px;height:20px;fill:#f0c9cb}
+.vrow small{font-family:var(--fu);font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(244,236,218,.55);display:block}
+.vrow b{font-weight:500;font-size:15.5px;color:var(--cream)}
+.vrow .num{font-family:var(--fu);font-weight:600;font-size:17px;direction:ltr;display:inline-block}
+.vmap{border-radius:22px;overflow:hidden;border:1px solid rgba(244,236,218,.2);min-height:340px;box-shadow:0 40px 80px -50px rgba(0,0,0,.6)}
+.vmap iframe{width:100%;height:100%;min-height:340px;border:0;filter:grayscale(.2) contrast(1.02)}
+.vsoc{display:flex;gap:11px;margin-top:18px;flex-wrap:wrap}
+.vsoc a{display:inline-flex;align-items:center;gap:9px;background:rgba(244,236,218,.1);border:1px solid rgba(244,236,218,.22);color:var(--cream);padding:11px 18px;border-radius:100px;font-family:var(--fu);font-size:13px;font-weight:500;transition:.4s var(--ease)}
+.vsoc a:hover{background:var(--cream);color:var(--green-d)}
+.vsoc a svg{width:16px;height:16px;fill:currentColor}
+
+/* footer */
+.foot{background:var(--green-d);color:var(--cream);padding:70px 0 34px;text-align:center}
+.foot .fw{font-family:var(--fw);font-weight:600;font-size:54px;color:var(--cream);text-transform:lowercase;letter-spacing:-.04em}
+.foot .fw i{color:var(--crimson);font-style:normal}
+.foot p{color:rgba(244,236,218,.6);font-size:14.5px;max-width:40ch;margin:14px auto 26px}
+.foot-soc{display:flex;gap:12px;justify-content:center;margin-bottom:34px}
+.foot-soc a{width:46px;height:46px;border-radius:50%;border:1px solid rgba(244,236,218,.2);display:grid;place-items:center;color:rgba(244,236,218,.85);transition:.4s var(--ease)}
+.foot-soc a:hover{transform:translateY(-3px);color:var(--green-d);background:var(--cream);border-color:var(--cream)}
+.foot-soc a svg{width:19px;height:19px;fill:currentColor}
+.foot-bot{border-top:1px solid rgba(244,236,218,.12);padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;max-width:var(--maxw);margin:0 auto}
+.foot-bot small{font-family:var(--fu);font-size:12px;letter-spacing:.05em;color:rgba(244,236,218,.5)}
+
+/* whatsapp float */
+.wa{position:fixed;bottom:22px;left:22px;z-index:6000;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 16px 40px -12px rgba(37,211,102,.6);transition:.45s var(--ease);animation:wap 3s ease-in-out infinite}
+.wa:hover{transform:scale(1.08)}.wa svg{width:30px;height:30px;fill:#fff}
+@keyframes wap{0%,100%{box-shadow:0 16px 40px -12px rgba(37,211,102,.55)}50%{box-shadow:0 16px 54px -8px rgba(37,211,102,.85)}}
+
+@media(max-width:980px){
+  .nav-links{display:none}.burger{display:block}
+  .about-grid{grid-template-columns:1fr;gap:44px}.about-ph{order:-1;max-width:480px}
+  .visit-grid{grid-template-columns:1fr}
+  .menu-grid{columns:1;max-width:560px;margin:0 auto}
+  .gal{columns:2}
+}
+@media(max-width:600px){
+  .wrap{padding:0 20px}
+  .hero{padding:108px 20px 120px;align-items:stretch;justify-content:flex-end}
+  .hero h1{font-size:clamp(40px,13vw,60px)}
+  .hero-act{flex-direction:column;align-items:stretch}.hero-act .btn{justify-content:space-between}
+  .hero-meta{position:static;left:auto;bottom:auto;margin-top:22px;border-radius:16px;justify-content:center}
+  .scrollcue{display:none}
+  .marq span{font-size:18px}
+  .stats{grid-template-columns:1fr 1fr;gap:18px}
+  .gal{columns:2;column-gap:11px}.gitem{margin-bottom:11px;border-radius:14px}
+  .gitem::after{opacity:1;background:linear-gradient(to top,rgba(25,58,44,.6),transparent 42%)}
+  .gcap{opacity:1;transform:none;font-size:12px;right:11px;bottom:10px}
+  .lb-x{top:14px;left:14px}.lb-nav.prev{right:10px}.lb-nav.next{left:10px}.lb-nav{width:44px;height:44px}
+  .foot-bot{justify-content:center;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="bean" viewBox="0 0 24 24"><path d="M12 2.4c5.3 0 9.6 4.3 9.6 9.6s-4.3 9.6-9.6 9.6S2.4 17.3 2.4 12 6.7 2.4 12 2.4zm.3.2c-3 3-3 6.8 0 9.4s3 6.8 0 9.6" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol></svg>
+
+<div id="pre"><div class="pw">dor<i>m</i></div><small>specialty coffee · abha</small><div class="pb"><i></i></div></div>
+
+<div id="prog"><i></i></div>
+
+<nav id="nav">
+  <div class="nbar">
+    <a href="#top" class="nbrand">dor<i>m</i></a>
+    <div class="nav-links">
+      <a href="#about">عن دورم</a>
+      <a href="#craft">المقطّرة</a>
+      <a href="#menu">المنيو</a>
+      <a href="#gallery">الأجواء</a>
+      <a href="#visit">الموقع</a>
+    </div>
+    <a href="https://wa.me/966563208110?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D9%84%D8%AF%D9%8A%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AF%D9%88%D8%B1%D9%85" target="_blank" rel="noopener" class="ncta">واتساب<span class="ic"><svg viewBox="0 0 24 24"><path d="M.06 24l1.68-6.13A11.8 11.8 0 0 1 .16 11.9C.16 5.34 5.5 0 12.06 0a11.8 11.8 0 0 1 8.4 3.48 11.8 11.8 0 0 1 3.48 8.42c0 6.56-5.34 11.9-11.9 11.9a11.9 11.9 0 0 1-5.7-1.45L.06 24zM6.6 20.2c1.65.98 3.23 1.56 5.45 1.56 5.45 0 9.9-4.43 9.9-9.88 0-5.46-4.43-9.9-9.9-9.9-5.46 0-9.89 4.44-9.89 9.9 0 2.33.68 4.07 1.83 5.9l-.99 3.62 3.6-.95z"/></svg></span></a>
+  </div>
+</nav>
+
+<div id="mob">
+  <a href="#about">عن دورم</a>
+  <a href="#craft">المقطّرة</a>
+  <a href="#menu">المنيو</a>
+  <a href="#gallery">الأجواء</a>
+  <a href="#visit">الموقع</a>
+  <div class="msoc">
+    <a href="https://instagram.com/dorm.sa" target="_blank" rel="noopener" aria-label="انستقرام"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.9 5.9 0 0 0-2.13 1.38A5.9 5.9 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.79.72 1.46 1.38 2.13a5.9 5.9 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.9 5.9 0 0 0 2.13-1.38 5.9 5.9 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.4a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a>
+    <a href="https://www.tiktok.com/@dorm.sa" target="_blank" rel="noopener" aria-label="تيك توك"><svg viewBox="0 0 24 24"><path d="M16.5 5.6a4.7 4.7 0 0 1-1-.1 4.8 4.8 0 0 1-3.1-2.9V14a3.1 3.1 0 1 1-3.1-3.1c.18 0 .35.02.52.05v-2.4a5.5 5.5 0 1 0 4.9 5.46V8.9a7 7 0 0 0 4 1.26V7.7a4.7 4.7 0 0 1-2.1-2.1z"/></svg></a>
+    <a href="https://wa.me/966563208110" target="_blank" rel="noopener" aria-label="واتساب"><svg viewBox="0 0 24 24"><path d="M.06 24l1.68-6.13A11.8 11.8 0 0 1 .16 11.9C.16 5.34 5.5 0 12.06 0a11.8 11.8 0 0 1 8.4 3.48 11.8 11.8 0 0 1 3.48 8.42c0 6.56-5.34 11.9-11.9 11.9a11.9 11.9 0 0 1-5.7-1.45L.06 24zM6.6 20.2c1.65.98 3.23 1.56 5.45 1.56 5.45 0 9.9-4.43 9.9-9.88 0-5.46-4.43-9.9-9.9-9.9-5.46 0-9.89 4.44-9.89 9.9 0 2.33.68 4.07 1.83 5.9l-.99 3.62 3.6-.95z"/></svg></a>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg"><img src="img/facade.jpg" alt="واجهة دورم كافيه في أبها"></div>
+  <div class="hero-in">
+    <span class="eyebrow">مقهى إسبرسو مختص <b>·</b> أبها</span>
+    <h1>قهوةٌ تُروى<br>على مهلٍ في <span class="wm">dor<em>m</em></span></h1>
+    <p class="sub">مقطّرةٌ بمحاصيل مختارة، إسبريسو، وحلويات — في مساحةٍ هادئة على حزام أبها.</p>
+    <div class="hero-act">
+      <a href="#menu" class="btn btn-1">تصفّحي المنيو<span class="ic"><svg viewBox="0 0 24 24"><path d="M14 5l-1.4 1.4 4.6 4.6H4v2h13.2l-4.6 4.6L14 19l7-7z"/></svg></span></a>
+      <a href="#visit" class="btn btn-2">الموقع والأوقات<span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span></a>
+    </div>
+  </div>
+  <div class="hero-meta">
+    <div>
+      <div class="stars">★★★★☆</div>
+      <div class="gg">تقييم قوقل</div>
+    </div>
+    <div class="vl"></div>
+    <div>
+      <span class="rnum">4.2</span>
+      <span class="rsub">٦١٠ مراجعة</span>
+    </div>
+  </div>
+  <div class="scrollcue">SCROLL<i></i></div>
+</header>
+
+<!-- MARQUEE -->
+<div class="marq" aria-hidden="true">
+  <div class="track">
+    <span>قهوة مختصّة</span><span>تقطير V60</span><span>إسبريسو</span><span>محاصيل مختارة</span><span>حلويات</span><span>أبها</span>
+    <span>قهوة مختصّة</span><span>تقطير V60</span><span>إسبريسو</span><span>محاصيل مختارة</span><span>حلويات</span><span>أبها</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="wrap about-grid">
+    <div class="about-ph rv">
+      <img src="img/cups.jpg" alt="أكواب دورم الخضراء مع قهوة مقطّرة وحلى ماجيك مانجو">
+      <div class="tag"><span class="wm">dor<i style="color:var(--crimson);font-style:normal">m</i></span><small>ABHA<br>· KSA ·</small></div>
+    </div>
+    <div class="about-tx">
+      <span class="eyebrow rv">عن دورم</span>
+      <h2 class="rv d1">مساحةٌ للقهوة<br>على <em>طريقتها</em></h2>
+      <p class="lead rv d2">دورم مقهى إسبرسو مختص في أبها، يجمع بين القهوة المقطّرة بعنايةٍ ومساحةٍ هادئة تُشبه البيت.</p>
+      <p class="rv d2">نختار محاصيلنا من مصادر متعددة، ونحضّرها بالتقطير اليدوي لتُبرز كل فنجانٍ نكهته الخاصة — من الإسبريسو إلى المقطّرة، وصولًا إلى تشكيلة حلوياتنا.</p>
+      <div class="stats rv d3">
+        <div class="stat"><span class="st-s"><b>4.2</b><i>★</i></span><small>تقييم قوقل</small></div>
+        <div class="stat"><b>610</b><small>مراجعة وزيارة</small></div>
+        <div class="stat"><span class="st-s"><b>5</b></span><small>محاصيل مقطّرة</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CRAFT -->
+<section class="craft" id="craft">
+  <div class="craft-bg"><img src="img/brew.jpg" alt="تحضير القهوة المقطّرة على جهاز Poursteady في دورم"></div>
+  <div class="wrap">
+    <span class="eyebrow rv">المقطّرة · POUR OVER</span>
+    <h2 class="rv d1">كل محصولٍ له <em>حكاية</em><br>نروّيها بالتقطير</h2>
+    <p class="rv d2">على محطّة التقطير لدينا نحضّر القهوة فنجانًا فنجانًا، لنُبرز حموضة كل محصولٍ وحلاوته. اسألي الباريستا عن محصول اليوم.</p>
+    <div class="origins rv d3">
+      <span>صيني</span><span>أثيوبي</span><span>كولومبي</span><span>سلفادوري</span><span>كوستاريكي</span>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="sec menu" id="menu">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="eyebrow">المنيو <span class="dots"></span></span>
+      <h2>قائمتنا <em>الكاملة</em></h2>
+      <p>أسعارٌ بالريال السعودي، وسعرات تقريبية لكل مشروب. القائمة محدّثة من منيو دورم الرسمي.</p>
+    </div>
+    <div class="menu-grid">
+
+      <div class="mcard rv">
+        <h3>المقطّرة <span class="en lat">Filter</span></h3>
+        <div class="mlist">
+          <div class="mrow"><span class="nm">V60 حار</span><span class="cal">0 cal</span><span class="ldr"></span><span class="pr">17</span></div>
+          <div class="mrow"><span class="nm">V60 بارد</span><span class="cal">0 cal</span><span class="ldr"></span><span class="pr">20</span></div>
+          <div class="mrow"><span class="nm">بلومينق إسبريسو حار</span><span class="cal">0 cal</span><span class="ldr"></span><span class="pr">26</span></div>
+          <div class="mrow"><span class="nm">بلومينق إسبريسو بارد</span><span class="cal">0 cal</span><span class="ldr"></span><span class="pr">29</span></div>
+          <div class="mrow"><span class="nm">قهوة اليوم حار</span><span class="cal">0 cal</span><span class="ldr"></span><span class="pr">10</span></div>
+          <div class="mrow"><span class="nm">قهوة اليوم بارد</span><span class="cal">0 cal</span><span class="ldr"></span><span class="pr">12</span></div>
+        </div>
+        <div class="note"><b>محاصيل المقطّرة:</b> صيني · أثيوبي · كولومبي · سلفادوري · كوستاريكي</div>
+      </div>
+
+      <div class="mcard rv d1">
+        <h3>إسبريسو حار <span class="en lat">Espresso · Hot</span></h3>
+        <div class="mlist">
+          <div class="mrow"><span class="nm">إسبريسو<span class="ar-en">Espresso</span></span><span class="cal">0 cal</span><span class="ldr"></span><span class="pr">12</span></div>
+          <div class="mrow"><span class="nm">أمريكانو<span class="ar-en">Americano</span></span><span class="cal">0 cal</span><span class="ldr"></span><span class="pr">12</span></div>
+          <div class="mrow"><span class="nm">ماكياتو<span class="ar-en">Macchiato</span></span><span class="cal">90 cal</span><span class="ldr"></span><span class="pr">14</span></div>
+          <div class="mrow"><span class="nm">بيكولو<span class="ar-en">Piccolo</span></span><span class="cal">90 cal</span><span class="ldr"></span><span class="pr">14</span></div>
+          <div class="mrow"><span class="nm">كورتادو<span class="ar-en">Cortado</span></span><span class="cal">90 cal</span><span class="ldr"></span><span class="pr">15</span></div>
+          <div class="mrow"><span class="nm">كابتشينو<span class="ar-en">Cappuccino</span></span><span class="cal">90 cal</span><span class="ldr"></span><span class="pr">15</span></div>
+          <div class="mrow"><span class="nm">فلات وايت<span class="ar-en">Flat White</span></span><span class="cal">90 cal</span><span class="ldr"></span><span class="pr">16</span></div>
+          <div class="mrow"><span class="nm">لاتيه<span class="ar-en">Latte</span></span><span class="cal">115 cal</span><span class="ldr"></span><span class="pr">18</span></div>
+          <div class="mrow"><span class="nm">سبانيش لاتيه<span class="ar-en">Spanish</span></span><span class="cal">115 cal</span><span class="ldr"></span><span class="pr">19</span></div>
+          <div class="mrow"><span class="nm">موكا لاتيه<span class="ar-en">Mocha</span></span><span class="cal">115 cal</span><span class="ldr"></span><span class="pr">20</span></div>
+          <div class="mrow"><span class="nm">ماتشا لاتيه<span class="ar-en">Matcha</span></span><span class="cal">115 cal</span><span class="ldr"></span><span class="pr">21</span></div>
+        </div>
+      </div>
+
+      <div class="mcard rv">
+        <h3>إسبريسو بارد <span class="en lat">Espresso · Iced</span></h3>
+        <div class="mlist">
+          <div class="mrow"><span class="nm">آيس أمريكانو<span class="ar-en">Iced</span></span><span class="cal">170 cal</span><span class="ldr"></span><span class="pr">13</span></div>
+          <div class="mrow"><span class="nm">آيس إسبريسو الفريدو</span><span class="cal">170 cal</span><span class="ldr"></span><span class="pr">14</span></div>
+          <div class="mrow"><span class="nm">آيس إسبريسو مارتيني</span><span class="cal">170 cal</span><span class="ldr"></span><span class="pr">16</span></div>
+          <div class="mrow"><span class="nm">آيس لاتيه<span class="ar-en">Iced Latte</span></span><span class="cal">115 cal</span><span class="ldr"></span><span class="pr">18</span></div>
+          <div class="mrow"><span class="nm">آيس دورم<span class="ar-en">إسبريسو + موهيتو</span></span><span class="cal">200 cal</span><span class="ldr"></span><span class="pr">19</span></div>
+          <div class="mrow"><span class="nm">آيس سبانيش لاتيه</span><span class="cal">115 cal</span><span class="ldr"></span><span class="pr">22</span></div>
+        </div>
+      </div>
+
+      <div class="mcard rv d1">
+        <h3>مشروبات باردة <span class="en lat">Cold &amp; Tea</span></h3>
+        <div class="mlist">
+          <div class="mrow"><span class="nm">ماء<span class="ar-en">Water</span></span><span class="cal">0 cal</span><span class="ldr"></span><span class="pr">1</span></div>
+          <div class="mrow"><span class="nm">كركديه باشن فروت</span><span class="cal">115 cal</span><span class="ldr"></span><span class="pr">18</span></div>
+          <div class="mrow"><span class="nm">موهيتو<span class="ar-en">Mojito</span></span><span class="cal">190 cal</span><span class="ldr"></span><span class="pr">18</span></div>
+          <div class="mrow"><span class="nm">آيس تي<span class="ar-en">Iced Tea</span></span><span class="cal">180 cal</span><span class="ldr"></span><span class="pr">18</span></div>
+          <div class="mrow"><span class="nm">هيلا تشيري<span class="ar-en">كرز · هيل</span></span><span class="cal">190 cal</span><span class="ldr"></span><span class="pr">19</span></div>
+          <div class="mrow"><span class="nm">ماتشا<span class="ar-en">Matcha</span></span><span class="cal">190 cal</span><span class="ldr"></span><span class="pr">21</span></div>
+        </div>
+      </div>
+
+      <div class="mcard rv">
+        <h3>الحلويات <span class="en lat">Desserts</span></h3>
+        <div class="mlist">
+          <div class="mrow"><span class="nm">تشوكو بايتس</span><span class="cal">300 cal</span><span class="ldr"></span><span class="pr">14</span></div>
+          <div class="mrow"><span class="nm">بيكان بايتس</span><span class="cal">350 cal</span><span class="ldr"></span><span class="pr">16</span></div>
+          <div class="mrow"><span class="nm">تيراميسو</span><span class="cal">300 cal</span><span class="ldr"></span><span class="pr">23</span></div>
+          <div class="mrow"><span class="nm">وايت دارك</span><span class="cal">395 cal</span><span class="ldr"></span><span class="pr">24</span></div>
+          <div class="mrow"><span class="nm">تشيز مدريد</span><span class="cal">340 cal</span><span class="ldr"></span><span class="pr">25</span></div>
+          <div class="mrow"><span class="nm">بروليه تشيز</span><span class="cal">340 cal</span><span class="ldr"></span><span class="pr">26</span></div>
+          <div class="mrow"><span class="nm">لاير تشيز</span><span class="cal">450 cal</span><span class="ldr"></span><span class="pr">26</span></div>
+          <div class="mrow"><span class="nm">ماجيك مانجو</span><span class="cal">300 cal</span><span class="ldr"></span><span class="pr">27</span></div>
+          <div class="mrow"><span class="nm">كيكة عسل دورم</span><span class="cal">340 cal</span><span class="ldr"></span><span class="pr">27</span></div>
+          <div class="mrow"><span class="nm">تشوكو تشيري</span><span class="cal">500 cal</span><span class="ldr"></span><span class="pr">27</span></div>
+        </div>
+      </div>
+
+    </div>
+    <p class="menu-foot rv">الأسعار شاملة الضريبة · قد تتغيّر بعض الأصناف حسب التوفّر</p>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="sec" id="gallery">
+  <div class="wrap">
+    <div class="shead rv">
+      <span class="eyebrow">الأجواء <span class="dots"></span></span>
+      <h2>لمحاتٌ من <em>دورم</em></h2>
+      <p>من واجهتنا إلى طاولة التقطير — صورٌ حقيقية من المكان.</p>
+    </div>
+    <div class="gal">
+      <figure class="gitem rv" data-src="img/terrace.jpg" data-cap="جلسات خارجية"><img src="img/terrace.jpg" alt="جلسات دورم الخارجية بطابع معماري هادئ" loading="lazy"><figcaption class="gcap">جلسات خارجية</figcaption></figure>
+      <figure class="gitem rv" data-src="img/bar.jpg" data-cap="ركن التقطير"><img src="img/bar.jpg" alt="ركن تحضير القهوة المقطّرة في دورم" loading="lazy"><figcaption class="gcap">ركن التقطير</figcaption></figure>
+      <figure class="gitem rv" data-src="img/board.jpg" data-cap="قهوة وحلى"><img src="img/board.jpg" alt="أكواب دورم مع حلى ماجيك مانجو على طبق خشبي" loading="lazy"><figcaption class="gcap">قهوة وحلى</figcaption></figure>
+      <figure class="gitem rv" data-src="img/brew.jpg" data-cap="V60 لحظة بلحظة"><img src="img/brew.jpg" alt="تقطير V60 على جهاز Poursteady" loading="lazy"><figcaption class="gcap">V60 لحظة بلحظة</figcaption></figure>
+      <figure class="gitem rv" data-src="img/cups.jpg" data-cap="أكواب دورم"><img src="img/cups.jpg" alt="أكواب دورم الخضراء" loading="lazy"><figcaption class="gcap">أكواب دورم</figcaption></figure>
+      <figure class="gitem rv" data-src="img/facade.jpg" data-cap="واجهة المقهى"><img src="img/facade.jpg" alt="واجهة دورم كافيه المعمارية في أبها" loading="lazy"><figcaption class="gcap">واجهة المقهى</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="sec visit" id="visit">
+  <div class="wrap visit-grid">
+    <div>
+      <span class="eyebrow">زورونا <span class="dots"></span></span>
+      <h2>نراكم في <em>دورم</em></h2>
+      <div class="vinfo">
+        <a class="vrow" href="https://www.google.com/maps/place/Dorm+Cafe/@18.214867,42.5212542,17z" target="_blank" rel="noopener">
+          <span class="vic"><svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span>
+          <span><small>الموقع</small><b>الحزام · حي الأندلس · أبها</b></span>
+        </a>
+        <a class="vrow" href="tel:+966563208110">
+          <span class="vic"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.58.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1A17 17 0 0 1 3 4c0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.46.57 3.58.12.35.03.75-.24 1.02L6.6 10.8z"/></svg></span>
+          <span><small>اتصال · واتساب</small><b class="num">056 320 8110</b></span>
+        </a>
+        <div class="vrow">
+          <span class="vic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm.5-13H11v6l5.2 3.1.8-1.3-4.5-2.7z"/></svg></span>
+          <span><small>الأوقات</small><b>يوميًا · من ٧:٠٠ صباحًا — للأوقات المحدّثة، خرائط قوقل</b></span>
+        </div>
+      </div>
+      <div class="vsoc">
+        <a href="https://instagram.com/dorm.sa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.16a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg>انستقرام</a>
+        <a href="https://www.tiktok.com/@dorm.sa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M16.5 5.6a4.7 4.7 0 0 1-1-.1 4.8 4.8 0 0 1-3.1-2.9V14a3.1 3.1 0 1 1-3.1-3.1c.18 0 .35.02.52.05v-2.4a5.5 5.5 0 1 0 4.9 5.46V8.9a7 7 0 0 0 4 1.26V7.7a4.7 4.7 0 0 1-2.1-2.1z"/></svg>تيك توك</a>
+        <a href="https://wa.me/966563208110" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M.06 24l1.68-6.13A11.8 11.8 0 0 1 .16 11.9C.16 5.34 5.5 0 12.06 0a11.8 11.8 0 0 1 8.4 3.48 11.8 11.8 0 0 1 3.48 8.42c0 6.56-5.34 11.9-11.9 11.9a11.9 11.9 0 0 1-5.7-1.45L.06 24zM6.6 20.2c1.65.98 3.23 1.56 5.45 1.56 5.45 0 9.9-4.43 9.9-9.88 0-5.46-4.43-9.9-9.9-9.9-5.46 0-9.89 4.44-9.89 9.9 0 2.33.68 4.07 1.83 5.9l-.99 3.62 3.6-.95z"/></svg>واتساب</a>
+      </div>
+    </div>
+    <div class="vmap rv d1">
+      <iframe src="https://www.google.com/maps?q=18.214867,42.5212542&z=16&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="موقع دورم على الخريطة"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="fw">dor<i>m</i></div>
+    <p>مقهى إسبرسو مختص في أبها — قهوةٌ تُحضَّر على مهل.</p>
+    <div class="foot-soc">
+      <a href="https://instagram.com/dorm.sa" target="_blank" rel="noopener" aria-label="انستقرام"><svg viewBox="0 0 24 24"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zM12 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.4-10.16a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a>
+      <a href="https://www.tiktok.com/@dorm.sa" target="_blank" rel="noopener" aria-label="تيك توك"><svg viewBox="0 0 24 24"><path d="M16.5 5.6a4.7 4.7 0 0 1-1-.1 4.8 4.8 0 0 1-3.1-2.9V14a3.1 3.1 0 1 1-3.1-3.1c.18 0 .35.02.52.05v-2.4a5.5 5.5 0 1 0 4.9 5.46V8.9a7 7 0 0 0 4 1.26V7.7a4.7 4.7 0 0 1-2.1-2.1z"/></svg></a>
+      <a href="https://wa.me/966563208110" target="_blank" rel="noopener" aria-label="واتساب"><svg viewBox="0 0 24 24"><path d="M.06 24l1.68-6.13A11.8 11.8 0 0 1 .16 11.9C.16 5.34 5.5 0 12.06 0a11.8 11.8 0 0 1 8.4 3.48 11.8 11.8 0 0 1 3.48 8.42c0 6.56-5.34 11.9-11.9 11.9a11.9 11.9 0 0 1-5.7-1.45L.06 24zM6.6 20.2c1.65.98 3.23 1.56 5.45 1.56 5.45 0 9.9-4.43 9.9-9.88 0-5.46-4.43-9.9-9.9-9.9-5.46 0-9.89 4.44-9.89 9.9 0 2.33.68 4.07 1.83 5.9l-.99 3.62 3.6-.95z"/></svg></a>
+    </div>
+    <div class="foot-bot">
+      <small>© 2026 دورم · جميع الحقوق محفوظة</small>
+      <small class="lat">Dorm Cafe · Abha</small>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/966563208110?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D9%84%D8%AF%D9%8A%20%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AF%D9%88%D8%B1%D9%85" target="_blank" rel="noopener" aria-label="واتساب">
+  <svg viewBox="0 0 24 24"><path d="M.06 24l1.68-6.13A11.8 11.8 0 0 1 .16 11.9C.16 5.34 5.5 0 12.06 0a11.8 11.8 0 0 1 8.4 3.48 11.8 11.8 0 0 1 3.48 8.42c0 6.56-5.34 11.9-11.9 11.9a11.9 11.9 0 0 1-5.7-1.45L.06 24zM6.6 20.2c1.65.98 3.23 1.56 5.45 1.56 5.45 0 9.9-4.43 9.9-9.88 0-5.46-4.43-9.9-9.9-9.9-5.46 0-9.89 4.44-9.89 9.9 0 2.33.68 4.07 1.83 5.9l-.99 3.62 3.6-.95zM17.9 14.6c-.07-.12-.27-.2-.57-.35-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.42z"/></svg>
+</a>
+
+<div class="lb" id="lb" aria-hidden="true" role="dialog" aria-label="معرض الصور">
+  <button class="lb-x" id="lbx" aria-label="إغلاق">✕</button>
+  <button class="lb-nav prev" id="lbprev" aria-label="السابق">›</button>
+  <img id="lbimg" src="" alt="">
+  <button class="lb-nav next" id="lbnext" aria-label="التالي">‹</button>
+  <div class="lb-cap" id="lbcap"></div>
+</div>
+
+<script>
+(function(){
+  var pre=document.getElementById('pre');
+  function hide(){pre.classList.add('done')}
+  window.addEventListener('load',function(){setTimeout(hide,600)});setTimeout(hide,2600);
+
+  var prog=document.querySelector('#prog i'),nav=document.getElementById('nav');
+  function onScroll(){
+    var h=document.documentElement,sc=h.scrollTop,mx=h.scrollHeight-h.clientHeight;
+    prog.style.width=(mx>0?(sc/mx*100):0)+'%';
+    nav.classList.toggle('shrink',sc>40);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  var burger=document.getElementById('burger')||document.querySelector('.burger'),mob=document.getElementById('mob');
+  if(!burger){ // build burger into nbar
+    burger=document.createElement('button');burger.className='burger';burger.setAttribute('aria-label','القائمة');
+    burger.innerHTML='<span></span><span></span><span></span>';
+    document.querySelector('.nbar').appendChild(burger);
+  }
+  function toggle(){burger.classList.toggle('x');mob.classList.toggle('open');document.body.style.overflow=mob.classList.contains('open')?'hidden':''}
+  burger.addEventListener('click',toggle);
+  mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(mob.classList.contains('open'))toggle()})});
+
+  var rvs=document.querySelectorAll('.rv');
+  function safety(){var vh=window.innerHeight;rvs.forEach(function(el){var r=el.getBoundingClientRect();if(r.top<vh*0.94){el.classList.add('in')}})}
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0,rootMargin:'0px 0px -7% 0px'});
+    rvs.forEach(function(el){io.observe(el)});
+  }
+  window.addEventListener('load',safety);window.addEventListener('scroll',safety,{passive:true});
+  setTimeout(safety,400);setTimeout(safety,1400);
+
+  /* lightbox */
+  var items=[].slice.call(document.querySelectorAll('.gitem'));
+  if(items.length){
+    var lb=document.getElementById('lb'),limg=document.getElementById('lbimg'),lcap=document.getElementById('lbcap'),ix=0;
+    function show(n){ix=(n+items.length)%items.length;var el=items[ix];limg.src=el.getAttribute('data-src');limg.alt=el.getAttribute('data-cap')||'';lcap.textContent=el.getAttribute('data-cap')||'';}
+    function open(n){show(n);lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+    function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+    items.forEach(function(el,n){el.addEventListener('click',function(){open(n)});});
+    document.getElementById('lbx').addEventListener('click',close);
+    document.getElementById('lbprev').addEventListener('click',function(e){e.stopPropagation();show(ix-1);});
+    document.getElementById('lbnext').addEventListener('click',function(e){e.stopPropagation();show(ix+1);});
+    lb.addEventListener('click',function(e){if(e.target===lb)close();});
+    document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();else if(e.key==='ArrowRight')show(ix-1);else if(e.key==='ArrowLeft')show(ix+1);});
+  }
+})();
+</script>
+</body>
+</html>
