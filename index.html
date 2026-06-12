@@ -40,7 +40,7 @@ h1,h2,h3,h4{font-family:var(--fa-d);font-weight:800;line-height:1.14;letter-spac
 
 /* preloader */
 #pre{position:fixed;inset:0;z-index:10000;background:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:opacity .9s var(--ease),visibility .9s}
-#pre.done{opacity:0;visibility:hidden}
+#pre.done{opacity:0;visibility:hidden;display:none;pointer-events:none}
 #pre .pw{font-family:var(--fw);font-weight:600;font-size:clamp(46px,12vw,80px);color:var(--cream);text-transform:lowercase;letter-spacing:-.04em;opacity:0;transform:translateY(12px);animation:plin 1s var(--ease) .15s forwards}
 #pre .pw i{color:var(--crimson);font-style:normal}
 #pre small{font-family:var(--fu);font-size:10px;letter-spacing:.55em;text-transform:uppercase;color:rgba(244,236,218,.6);opacity:0;animation:plin 1s var(--ease) .45s forwards}
